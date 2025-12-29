@@ -27,7 +27,7 @@ const HeroSection: FC = () => {
                     </div>
                 </div>
 
-                <div className="w-full h-[400px] md:w-[600px] md:h-[700px] overflow-hidden bg-offwhite rounded-2xl shrink-0"></div>
+                <div className="w-full h-[400px] md:w-[400px] md:h-[500px] lg:w-[600px] lg:h-[700px] overflow-hidden bg-offwhite rounded-2xl shrink-0"></div>
             </div>
         </section>
     );
