@@ -64,7 +64,7 @@ const Header: FC = () => {
                     />
 
                     {/* Menu */}
-                    <nav className="absolute top-0 left-0 right-0 bg-dark border-t border-offwhite/10 md:hidden">
+                    <nav className="absolute top-0 left-0 right-0 bg-dark md:hidden">
                         {/* Menu Header with Logo and Close Button */}
                         <div className="container py-4 flex items-center justify-between border-b border-offwhite/10">
                             <Link
