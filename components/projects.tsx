@@ -1,7 +1,19 @@
+import { Project } from "@/@types";
+import { headers } from "next/headers";
 import { FC } from "react";
 import ProjectItem from "./project-item";
 
-const ProjectsSection: FC = () => {
+const ProjectsSection: FC = async () => {
+    const headersList = await headers();
+    const host = headersList.get("host");
+    const protocol = headersList.get("x-forwarded-proto") || "http";
+    const baseUrl = `${protocol}://${host}`;
+
+    const projects = await fetch(`${baseUrl}/api/projects`, {
+        next: { tags: ["projects"] },
+        cache: "force-cache",
+    }).then((res) => res.json() as Promise<Project[]>);
+
     return (
         <section id="projects" className="py-16 border-b border-b-dark-gray md:py-20">
             <div className="container">
@@ -14,8 +26,8 @@ const ProjectsSection: FC = () => {
                 </p>
 
                 <div className="space-y-24 md:space-y-[120px]">
-                    {Array.from({ length: 3 }).map((_, index) => (
-                        <ProjectItem key={index} />
+                    {projects?.map((project) => (
+                        <ProjectItem key={project.id} project={project} />
                     ))}
                 </div>
             </div>
