@@ -3,7 +3,7 @@ import ProjectItem from "./project-item";
 
 const ProjectsSection: FC = () => {
     return (
-        <section className="py-16 border-b border-b-dark-gray md:py-20">
+        <section id="projects" className="py-16 border-b border-b-dark-gray md:py-20">
             <div className="container">
                 <h2 className="uppercase text-white font-bebas-neue text-[43px] font-normal leading-none tracking-[-0.02em] mb-3 md:text-[76px] md:mb-2">
                     Featured Projects

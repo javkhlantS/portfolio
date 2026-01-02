@@ -12,7 +12,7 @@ import Textarea from "../textarea";
 
 const Footer: FC = () => {
     return (
-        <footer className="py-16 md:py-20">
+        <footer id="contact" className="py-16 md:py-20">
             <div className="container flex flex-col gap-16 items-start md:flex-row md:gap-6 md:items-stretch">
                 <div className="flex flex-col justify-between md:w-1/2">
                     <div>
