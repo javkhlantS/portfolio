@@ -1,15 +1,10 @@
 import { Project } from "@/@types";
-import { headers } from "next/headers";
+import { getHostUrl } from "@/utils/server";
 import { FC } from "react";
 import ProjectItem from "./project-item";
 
 const ProjectsSection: FC = async () => {
-    const headersList = await headers();
-    const host = headersList.get("host");
-    const protocol = headersList.get("x-forwarded-proto") || "http";
-    const baseUrl = `${protocol}://${host}`;
-
-    const projects = await fetch(`${baseUrl}/api/projects`, {
+    const projects = await fetch(`${await getHostUrl()}/api/projects`, {
         next: { tags: ["projects"] },
         cache: "force-cache",
     }).then((res) => res.json() as Promise<Project[]>);
