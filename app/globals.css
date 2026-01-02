@@ -11,6 +11,13 @@
     --color-dark: #0a0a0a;
 }
 
+@layer base {
+    button:not([disabled]),
+    [role="button"]:not([disabled]) {
+        cursor: pointer;
+    }
+}
+
 html,
 body {
     @apply bg-dark text-offwhite;

@@ -1,15 +1,26 @@
-import { ComponentProps, FC } from "react";
+import { ComponentProps, ElementType } from "react";
 
-const LinkButton: FC<ComponentProps<"button">> = ({ children, ...props }) => {
+type LinkButtonProps<T extends ElementType = "button"> = {
+    as?: T;
+    children: React.ReactNode;
+} & ComponentProps<T>;
+
+const LinkButton = <T extends ElementType = "button">({
+    as,
+    children,
+    className: propClassName,
+    ...props
+}: LinkButtonProps<T>) => {
+    const Component = as || ("button" as ElementType);
+    const baseClassName =
+        "text-primary uppercase text-[14px] font-bold leading-[150%] tracking-[0] pb-1 transition-all duration-300 hover:opacity-80 active:opacity-70 active:scale-95 active:transition-all active:duration-150";
+    const className = propClassName ? `${baseClassName} ${propClassName}` : baseClassName;
+
     return (
-        <button
-            {...props}
-            className="text-primary uppercase text-[14px] font-bold leading-[150%] tracking-[0] pb-1"
-        >
+        <Component className={className} {...(props as ComponentProps<ElementType>)}>
             {children}
-
-            <span className="block w-full h-0.5 bg-primary" />
-        </button>
+            <span className="block w-full h-0.5 bg-primary transition-all duration-300" />
+        </Component>
     );
 };
 
