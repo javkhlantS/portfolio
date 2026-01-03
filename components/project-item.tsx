@@ -11,7 +11,7 @@ type ProjectItemProps = {
 const ProjectItem: FC<ProjectItemProps> = ({ project }) => {
     return (
         <div className="flex flex-col gap-10 items-start md:flex-row md:items-start md:gap-12">
-            <div className="w-full h-[343px] bg-dark-gray rounded-[12px] overflow-hidden shrink-0 md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px]">
+            <div className="w-full h-[343px] bg-dark-gray rounded-[12px] overflow-hidden shrink-0 md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px] relative group">
                 <Image
                     src={project.picture_url}
                     alt={project.title}
@@ -19,6 +19,16 @@ const ProjectItem: FC<ProjectItemProps> = ({ project }) => {
                     height={600}
                     className="w-full h-full object-cover"
                 />
+
+                {project.alt_picture_url && (
+                    <Image
+                        src={project.alt_picture_url}
+                        alt={project.title}
+                        width={600}
+                        height={600}
+                        className="w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                )}
             </div>
 
             <div className="flex-1">

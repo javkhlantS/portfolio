@@ -8,4 +8,5 @@ export type Project = {
     role: string | null;
     live_url: string | null;
     github_url: string | null;
+    alt_picture_url: string | null;
 };
