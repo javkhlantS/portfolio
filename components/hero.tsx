@@ -1,3 +1,5 @@
+import { SocialUrl } from "@/@types";
+import { getHostUrl } from "@/utils/server";
 import { IconBrandGithub, IconBrandLinkedinFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,7 +7,12 @@ import { FC } from "react";
 import Button from "./button";
 import IconButton from "./icon-button";
 
-const HeroSection: FC = () => {
+const HeroSection: FC = async () => {
+    const socialUrl = await fetch(`${await getHostUrl()}/api/social_url`, {
+        next: { tags: ["social_url"] },
+        cache: "force-cache",
+    }).then((res) => res.json() as Promise<SocialUrl>);
+
     return (
         <section className="border-b border-b-dark-gray mt-10 pb-16 md:pb-20 md:mt-[30px]">
             <div className="container flex flex-col gap-16 items-start md:flex-row md:items-center md:gap-20">
@@ -23,12 +30,16 @@ const HeroSection: FC = () => {
                         <Button as={Link} href={"#contact"}>
                             Contact me
                         </Button>
-                        <IconButton>
-                            <IconBrandLinkedinFilled size={24} />
-                        </IconButton>
-                        <IconButton>
-                            <IconBrandGithub size={24} />
-                        </IconButton>
+                        {socialUrl.linkedin && (
+                            <IconButton as={Link} href={socialUrl.linkedin} target="_blank">
+                                <IconBrandLinkedinFilled size={24} />
+                            </IconButton>
+                        )}
+                        {socialUrl.github && (
+                            <IconButton as={Link} href={socialUrl.github} target="_blank">
+                                <IconBrandGithub size={24} />
+                            </IconButton>
+                        )}
                     </div>
                 </div>
 

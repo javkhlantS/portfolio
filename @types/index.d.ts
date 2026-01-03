@@ -10,3 +10,10 @@ export type Project = {
     github_url: string | null;
     alt_picture_url: string | null;
 };
+
+export type SocialUrl = {
+    linkedin: string | null;
+    github: string | null;
+    twitter: string | null;
+    instagram: string | null;
+};
