@@ -16,8 +16,9 @@ const ProjectsSection: FC = async () => {
                     Featured Projects
                 </h2>
                 <p className="text-[16px] font-normal leading-[160%] tracking-[0] mb-16 md:text-[18px] md:leading-[150%] md:mb-20 max-w-[600px]">
-                    Here are some of the selected projects that showcase my passion for front-end
-                    development.
+                    A collection of projects where I’ve helped businesses and startups design,
+                    build, and launch reliable web and mobile applications. Each project focuses on
+                    solving real problems with clean, scalable, and maintainable code.
                 </p>
 
                 <div className="space-y-24 md:space-y-[120px]">

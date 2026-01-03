@@ -1,25 +1,50 @@
-import { IconCode, IconDeviceDesktop, IconPalette } from "@tabler/icons-react";
+import {
+    IconDeviceDesktop,
+    IconDeviceMobile,
+    IconPlug,
+    IconServer,
+    IconTools,
+    IconWorld,
+} from "@tabler/icons-react";
 import { FC } from "react";
 
 const ServicesSection: FC = () => {
     const services = [
         {
-            icon: IconCode,
-            title: "Web Development",
+            icon: IconWorld,
+            title: "Web Application Development",
             description:
-                "Building responsive and accessible websites using modern technologies and best practices.",
+                "Modern, fast, and scalable web applications built using proven frameworks and clean architecture. Suitable for startups, internal tools, and production systems.",
+        },
+        {
+            icon: IconDeviceMobile,
+            title: "Mobile App Development",
+            description:
+                "Cross-platform mobile applications for iOS and Android, built with performance and usability in mind. Ideal for MVPs and business-focused mobile solutions.",
         },
         {
             icon: IconDeviceDesktop,
-            title: "Front-End Development",
+            title: "Frontend Development",
             description:
-                "Creating engaging user interfaces with focus on performance, accessibility, and user experience.",
+                "Responsive and user-friendly interfaces focused on usability and performance. I turn designs into clean, maintainable, and accessible UI.",
         },
         {
-            icon: IconPalette,
-            title: "UI/UX Implementation",
+            icon: IconServer,
+            title: "Backend Development & APIs",
             description:
-                "Transforming design mockups into pixel-perfect, interactive web experiences.",
+                "Secure and scalable backend systems with well-structured APIs. I design systems that are reliable, easy to maintain, and ready to grow.",
+        },
+        {
+            icon: IconPlug,
+            title: "System Integration",
+            description:
+                "Integration with third-party services such as payment gateways, authentication providers, and external APIs to extend functionality.",
+        },
+        {
+            icon: IconTools,
+            title: "Maintenance & Optimization",
+            description:
+                "Ongoing support, performance improvements, bug fixes, and refactoring to keep your application stable and up to date.",
         },
     ];
 
@@ -30,8 +55,8 @@ const ServicesSection: FC = () => {
                     Services
                 </h2>
                 <p className="text-[16px] font-normal leading-[160%] tracking-[0] mb-16 md:text-[18px] md:leading-[150%] md:mb-20 max-w-[600px]">
-                    I offer a range of front-end development services to help bring your digital
-                    vision to life.
+                    I offer end-to-end web and mobile development services, helping businesses
+                    design, build, and scale reliable software solutions.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
