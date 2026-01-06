@@ -7,6 +7,7 @@ export async function GET() {
     const { data: projects } = (await client
         .from("projects")
         .select()
+        .is("status", "published")
         .order("order", { ascending: true })) as { data: Project[] | null };
 
     return NextResponse.json(projects);
